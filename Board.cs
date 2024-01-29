@@ -146,7 +146,7 @@ class Board
         {
             // Console.WriteLine(queenLocation.x);
             List<bool> diagonalList = getDiagonalList(queenLocation.x, queenLocation.y);
-            int conflicts = diagonalList.Count((bool x) => x) - 2; // Center position is counted twice
+            int conflicts = diagonalList.Count((bool x) => x);
             count += conflicts;
         }
 
@@ -154,22 +154,36 @@ class Board
 
         List<bool> getDiagonalList(int xInput, int yInput)
         {
-            List<Vector2Int> diagonalBasis = new();
-            for (int rowColumn = 0; rowColumn < board.Length; rowColumn++)
+            List<Vector2Int> diagonals = new List<Vector2Int>();
+
+            // Descending
+            int sum = xInput + yInput;
+            for (int column = 0; column < board.Length; column++)
             {
-                diagonalBasis.Add(new Vector2Int(rowColumn, rowColumn));
+                for (int row = 0; row < board.Length; row++)
+                {
+                    if (column + row == sum && (column != xInput || row != yInput))
+                    {
+                        diagonals.Add(new Vector2Int(column, row));
+                    }
+                }
             }
 
-            List<Vector2Int> returnListPositions = diagonalBasis.Select(v => new Vector2Int(v.x + xInput - yInput, v.y)).ToList();
-            returnListPositions.AddRange(diagonalBasis.Select(v => new Vector2Int(v.x + xInput - yInput, yInput - v.y)).ToList());
-
-            returnListPositions = returnListPositions.Where(isWithinBounds).ToList();
-
-            Console.WriteLine("Mask for diagonals on position: " + xInput + ", " + yInput);
-            displayMask(returnListPositions);
-
-            List<bool> returnListValues = returnListPositions.Select(getValueAtTile).ToList(); // getValueAtTile(x) for every x in returnListPosition
-            return returnListValues;
+            // Ascending
+            int diff = xInput - yInput;
+            for (int i = 0; i < board.Length; i++)
+            {
+                for (int j = 0; j < board.Length; j++)
+                {
+                    if (i - j == diff && (i != xInput || j != yInput))
+                    {
+                        diagonals.Add(new Vector2Int(i, j));
+                    }
+                }
+            }
+            displayMask(diagonals);
+            List<bool> diagonalsValues = diagonals.Select(getValueAtTile).ToList();
+            return diagonalsValues;
         }
     }
 
