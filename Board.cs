@@ -155,12 +155,13 @@ class Board
         List<bool> getDiagonalList(int xInput, int yInput)
         {
             List<Vector2Int> diagonals = new List<Vector2Int>();
+            int boardSize = board.Length;
 
             // Descending
             int sum = xInput + yInput;
-            for (int column = 0; column < board.Length; column++)
+            for (int column = 0; column < boardSize; column++)
             {
-                for (int row = 0; row < board.Length; row++)
+                for (int row = 0; row < boardSize; row++)
                 {
                     if (column + row == sum && (column != xInput || row != yInput))
                     {
@@ -171,9 +172,9 @@ class Board
 
             // Ascending
             int diff = xInput - yInput;
-            for (int i = 0; i < board.Length; i++)
+            for (int i = 0; i < boardSize; i++)
             {
-                for (int j = 0; j < board.Length; j++)
+                for (int j = 0; j < boardSize; j++)
                 {
                     if (i - j == diff && (i != xInput || j != yInput))
                     {

@@ -11,8 +11,11 @@ class Program
 
         board.restart();
         board.displayBoard();
-        Console.WriteLine(board.getConflicts());
+        Console.WriteLine(board.getConflicts() + "\n");
 
+        board.movePiece(0,5);
+        board.displayBoard();
+        Console.WriteLine(board.getConflicts() + "\n");
 
     }
 }
