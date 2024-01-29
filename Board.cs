@@ -20,6 +20,30 @@ class Board
         public int y { get; set; }
     }
 
+    public override string ToString()
+    {
+        string stringValue = "";
+        for (int y = 0; y < board.Length; y++)
+        {
+            stringValue += "\n|";
+            for (int x = 0; x < board[0].Length; x++)
+            {
+                if (board[x][y])
+                {
+                    stringValue += "x";
+                }
+                else
+                {
+                    stringValue += " ";
+                }
+                stringValue += "|";
+            }
+        }
+        stringValue += "\n";
+        return stringValue;
+    }
+
+
     // columns, rows
     Random random = new Random();
 
@@ -57,27 +81,6 @@ class Board
                 board[x][y] = false;
             }
         }
-    }
-
-    public void displayBoard()
-    {
-        for (int y = 0; y < board.Length; y++)
-        {
-            Console.Write("\n|");
-            for (int x = 0; x < board[0].Length; x++)
-            {
-                if (board[x][y])
-                {
-                    Console.Write("x");
-                }
-                else
-                {
-                    Console.Write(" ");
-                }
-                Console.Write("|");
-            }
-        }
-        Console.WriteLine("");
     }
 
     public void displayMask(List<Vector2Int> positions)
