@@ -5,6 +5,8 @@ using System.Security.Cryptography;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
+// TODO: Make immutable
+
 class Board
 {
     public struct Vector2Int
@@ -41,6 +43,19 @@ class Board
         {
             int randomInt = random.Next(8);
             board[i][randomInt] = true;
+        }
+    }
+
+    public void restartEmpty()
+    {
+        // restarts++;
+        for (int x = 0; x < 8; x++)
+        {
+            board[x] = new bool[8];
+            for (int y = 0; y < 8; y++)
+            {
+                board[x][y] = false;
+            }
         }
     }
 
@@ -149,7 +164,7 @@ class Board
             int conflicts = diagonalList.Count((bool x) => x);
             count += conflicts;
         }
-
+        Console.WriteLine("Diagonal conflicts: " + count);
         return count;
 
         List<bool> getDiagonalList(int xInput, int yInput)
@@ -182,7 +197,7 @@ class Board
                     }
                 }
             }
-            displayMask(diagonals);
+            // displayMask(diagonals);
             List<bool> diagonalsValues = diagonals.Select(getValueAtTile).ToList();
             return diagonalsValues;
         }

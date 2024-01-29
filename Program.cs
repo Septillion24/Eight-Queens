@@ -10,12 +10,10 @@ class Program
         Board board = new();
 
         board.restart();
+        // board.movePiece(3,5);
         board.displayBoard();
-        Console.WriteLine(board.getConflicts() + "\n");
-
-        board.movePiece(0,5);
-        board.displayBoard();
-        Console.WriteLine(board.getConflicts() + "\n");
+        Console.WriteLine(board.getConflicts());
+    
 
     }
 }
