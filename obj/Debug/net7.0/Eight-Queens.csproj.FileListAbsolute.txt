@@ -1,0 +1,15 @@
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\obj\Debug\net7.0\Eight-Queens.csproj.AssemblyReference.cache
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\obj\Debug\net7.0\Eight-Queens.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\obj\Debug\net7.0\Eight-Queens.AssemblyInfoInputs.cache
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\obj\Debug\net7.0\Eight-Queens.AssemblyInfo.cs
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\obj\Debug\net7.0\Eight-Queens.csproj.CoreCompileInputs.cache
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\bin\Debug\net7.0\Eight-Queens.exe
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\bin\Debug\net7.0\Eight-Queens.deps.json
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\bin\Debug\net7.0\Eight-Queens.runtimeconfig.json
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\bin\Debug\net7.0\Eight-Queens.dll
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\bin\Debug\net7.0\Eight-Queens.pdb
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\obj\Debug\net7.0\Eight-Queens.dll
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\obj\Debug\net7.0\refint\Eight-Queens.dll
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\obj\Debug\net7.0\Eight-Queens.pdb
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\obj\Debug\net7.0\Eight-Queens.genruntimeconfig.cache
+C:\Users\noahg\OneDrive\Desktop\older\UNCC\intro to AI\Eight-Queens\obj\Debug\net7.0\ref\Eight-Queens.dll
