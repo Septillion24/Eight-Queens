@@ -20,6 +20,12 @@ class Board
         public int y { get; set; }
     }
 
+    // columns, rows
+    Random random = new Random();
+
+    // Columns, rows
+    bool[][] board = new bool[8][];
+    
     public override string ToString()
     {
         string stringValue = "";
@@ -43,17 +49,13 @@ class Board
         return stringValue;
     }
 
-
-    // columns, rows
-    Random random = new Random();
-
-    // Columns, rows
-    bool[][] board = new bool[8][];
-    int restarts = 0;
-
-    public void restart()
+    public Board()
     {
-        restarts++;
+        initialize();
+    }
+
+    private void initialize()
+    {
         for (int x = 0; x < 8; x++)
         {
             board[x] = new bool[8];
@@ -70,29 +72,30 @@ class Board
         }
     }
 
-    public void restartEmpty()
-    {
-        // restarts++;
-        for (int x = 0; x < 8; x++)
-        {
-            board[x] = new bool[8];
-            for (int y = 0; y < 8; y++)
-            {
-                board[x][y] = false;
-            }
-        }
-    }
 
-    public void displayMask(List<Vector2Int> positions)
+    // public void restartEmpty()
+    // {
+    //     // restarts++;
+    //     for (int x = 0; x < 8; x++)
+    //     {
+    //         board[x] = new bool[8];
+    //         for (int y = 0; y < 8; y++)
+    //         {
+    //             board[x][y] = false;
+    //         }
+    //     }
+    // }
+
+    public static void displayMask(List<Vector2Int> positions, int size)
     {
         // foreach (Vector2Int position in positions)
         // {
         //     Console.Write("(" + position.x + ", " + position.y + "),");
         // }
-        for (int row = 0; row < board[0].Length; row++)
+        for (int row = 0; row < size; row++)
         {
             Console.Write("\n|");
-            for (int column = 0; column < board.Length; column++)
+            for (int column = 0; column < size; column++)
             {
                 if (positions.Contains(new Vector2Int(column, row)))
                 {
@@ -140,7 +143,11 @@ class Board
         return listOfQueens;
     }
 
-    public void movePiece(int column, int row)
+    // public Board movePiece(int column, int row)
+    // {
+        
+    // }
+    public void movePieceInternal(int column, int row)
     {
         board[column] = new bool[8];
         board[column][row] = true;
