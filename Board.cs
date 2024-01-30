@@ -20,12 +20,11 @@ class Board
         public int y { get; set; }
     }
 
-    // columns, rows
     Random random = new Random();
 
     // Columns, rows
     bool[][] board = new bool[8][];
-    
+
     public override string ToString()
     {
         string stringValue = "";
@@ -52,6 +51,10 @@ class Board
     public Board()
     {
         initialize();
+    }
+    public Board(Board board)
+    {
+        this.board = board.board;
     }
 
     private void initialize()
@@ -143,14 +146,12 @@ class Board
         return listOfQueens;
     }
 
-    // public Board movePiece(int column, int row)
-    // {
-        
-    // }
-    public void movePieceInternal(int column, int row)
+    public Board getBoardAfterMovePiece(int column, int row)
     {
-        board[column] = new bool[8];
-        board[column][row] = true;
+        Board returnBoard = new(this);
+        returnBoard.board[column] = new bool[8];
+        returnBoard.board[column][row] = true;
+        return returnBoard;
     }
 
     public int getConflicts()
@@ -213,7 +214,7 @@ class Board
         }
     }
 
-    bool isWithinBounds(Vector2Int vector)
+    public bool isWithinBounds(Vector2Int vector)
     {
         return vector.x < board.Length && vector.y < board.Length && vector.x >= 0 && vector.y >= 0;
     }
