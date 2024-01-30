@@ -152,6 +152,10 @@ class Board
         returnBoard.board[column][row] = true;
         return returnBoard;
     }
+    public Board getBoardAfterMovePiece(Vector2Int input)
+    {
+        return getBoardAfterMovePiece(input.x, input.y);
+    }
 
     public int getConflicts()
     {
