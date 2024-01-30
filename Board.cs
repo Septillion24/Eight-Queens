@@ -1,24 +1,8 @@
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-
 // TODO: Make immutable
 
 class Board
 {
-    public struct Vector2Int
-    {
-        public Vector2Int(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-        public int x { get; set; }
-        public int y { get; set; }
-    }
+    
 
     Random random = new Random();
 
@@ -129,6 +113,21 @@ class Board
     public bool getValueAtTile(int x, int y)
     {
         return board[x][y];
+    }
+
+    public List<Vector2Int> getAllPossibleMoves()
+    {
+        List<Vector2Int> allMoves = new();
+
+        foreach(Vector2Int queen in getAllQueenCoordinates())
+        {
+            for (int row = 0; row < board.Length; row++)
+            {
+                allMoves.Add(new Vector2Int(queen.x, row));
+            }
+        }
+
+        return allMoves;
     }
 
     public bool getValueAtTile(Vector2Int vector)
