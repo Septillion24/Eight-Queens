@@ -36,9 +36,16 @@ class Board
     {
         initialize();
     }
-    public Board(Board board)
+    public Board(Board other)
     {
-        this.board = board.board;
+        for (int x = 0; x < 8; x++)
+        {
+            this.board[x] = new bool[8];
+            for (int y = 0; y < 8; y++)
+            {
+                this.board[x][y] = other.board[x][y];
+            }
+        }
     }
 
     private void initialize()
@@ -178,7 +185,7 @@ class Board
             int conflicts = diagonalList.Count((bool x) => x);
             count += conflicts;
         }
-        Console.WriteLine("Diagonal conflicts: " + count);
+        // Console.WriteLine("Diagonal conflicts: " + count);
         return count;
 
         List<bool> getDiagonalList(int xInput, int yInput)
